@@ -25,6 +25,7 @@ coverage/
 Thumbs.db
 .vscode/
 .idea/
+.vs/
 
 # TypeScript cache
 *.tsbuildinfo
