@@ -149,9 +149,9 @@ Response → `OK`
 
 ## 🛠️ **Troubleshooting**
 
-* **MongoDB SRV errors** → use a non-SRV connection string or local Mongo instance
-* **DNS issues** → change resolver (e.g., `8.8.8.8` / `1.1.1.1`)
-* **CORS errors** → ensure `CLIENT_URL` is whitelisted in server config
+- MongoDB SRV errors → use a non-SRV connection string or local Mongo instance
+- DNS issues → try public DNS resolvers (e.g., 8.8.8.8 / 1.1.1.1)
+- CORS errors → ensure client origin is allowed by server (dev proxy handles this)
 
 ## 👥 **Contributors**
 
@@ -159,3 +159,7 @@ Response → `OK`
 |:-----|:----------|
 | **Offir Tura** | [linkedin.com/in/offir-tura](https://www.linkedin.com/in/offir-tura) |
 | **Liad Nave** | [linkedin.com/in/liad-nave-504072367](https://www.linkedin.com/in/liad-nave-504072367/) |
+
+## 📄 License
+
+ISC
