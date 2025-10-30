@@ -1,14 +1,31 @@
 # MyWeb Travel Planner
 
-A full-stack travel planner: React (client) + Node/Express + MongoDB. Features authentication, trip planning (OSRM-based with optional LLM assist), weather forecasts, image fetching (Unsplash/Wikipedia), and trip history.
+Build smarter trips with a React + Node/Express + MongoDB stack: plan routes (OSRM, optional LLM assist), check weather, fetch images, and save your trip history.
 
+![Stack](https://img.shields.io/badge/stack-React%20%7C%20Express%20%7C%20MongoDB-blue)
+![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
+![License](https://img.shields.io/badge/license-ISC-lightgrey)
+
+## Features
+
+- Email/password auth with JWT
+- Trip planning
+  - Hiking loops around landmarks (OSRM foot)
+  - Biking city-to-city with distance limits (OSRM bike)
+  - Optional LLM planning (Groq) with hard constraints
+- Weather forecast per location (OpenWeather)
+- Representative hero image (Unsplash → Wikipedia fallback)
+- Trip history with waypoints and geometry
+
+## Documentation
+
+- Project PDF: [docs/TravelPlanner.pdf](./docs/TravelPlanner.pdf)
 
 ## Requirements
 
 - Node.js 18+
 - MongoDB (Atlas or local)
 - Optional API keys: OpenWeather, Unsplash, Groq
-
 
 ## Project structure
 
@@ -24,7 +41,6 @@ MyWeb/
   docs/                # Project docs (e.g., PDF)
 ```
 
-
 ## Environment variables
 
 Copy `.env.example` to `.env` and set values:
@@ -39,56 +55,59 @@ Copy `.env.example` to `.env` and set values:
 
 Note: `.env` is ignored by git. Keep secrets out of version control.
 
-
 ## Install & run (Windows PowerShell)
 
-1. Backend deps
+From the MyWeb folder:
+
+1. Install backend deps
 
 ```powershell
-cd "c:\Users\offir\Afeka\WEB\Final\FinalProject\MyWeb"
 npm install
 ```
 
-1. Frontend deps
+1. Install frontend deps
 
 ```powershell
-cd ".\client"
+cd .\client
 npm install
+cd ..
 ```
 
-1. Start backend
+1. Start backend (terminal A)
 
 ```powershell
-cd "c:\Users\offir\Afeka\WEB\Final\FinalProject\MyWeb"
 npm start
 ```
 
-1. Start frontend (new terminal)
+1. Start frontend (terminal B)
 
 ```powershell
-cd "c:\Users\offir\Afeka\WEB\Final\FinalProject\MyWeb\client"
+cd .\client
 npm start
 ```
 
-- Client on <http://localhost:3000>
-- API on <http://localhost:5000>
-
+- Client: <http://localhost:3000>
+- API: <http://localhost:5000>
 
 ## API quick check
 
 - GET <http://localhost:5000/api/test> → OK
 
-
 ## Troubleshooting
 
 - MongoDB SRV (mongodb+srv) DNS errors: use a non-SRV connection string, or local MongoDB, or adjust DNS (8.8.8.8/1.1.1.1), then retry.
 
-
 ## Security
 
-- Do not commit `.env` or any secrets.
+- Do not commit `.env` or any secrets (use `.env.example`).
 
+## Tech stack
 
-## License
+- Frontend: React, React Router, React Leaflet
+- Backend: Node.js, Express, JWT
+- DB: MongoDB (Mongoose)
+- Routing: OSRM (public server by default)
+- Weather: OpenWeather
+- Images: Unsplash (optional) with Wikipedia fallback
+- Optional LLM: Groq (Llama 3.1) for seed plans
 
-ISC
